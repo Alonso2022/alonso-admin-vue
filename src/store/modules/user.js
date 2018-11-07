@@ -2,13 +2,11 @@ import { setToken, removeToken } from "@/utils/cookie";
 import { setStore, getStore } from "@/utils/storage";
 import { isURL } from "@/utils/validate";
 import { aesEncryptObj } from "@/utils/crypto";
-import webiste from "@/const/website";
+import website from "@/const/website";
 import { auth } from "@/api/user";
 
-const reqFrom = "001";
-
 function addPath(ele) {
-  const propsConfig = webiste.menu.props;
+  const propsConfig = website.menuProps
   const propsDefault = {
     label: propsConfig.label || "label",
     path: propsConfig.path || "path",
@@ -46,7 +44,7 @@ const user = {
         param: ["useranme", "password"]
       });
       return new Promise((resolve, reject) => {
-        let reqData = Object.assign({}, webiste.requestConfig, {
+        let reqData = Object.assign({}, website.requestOptions, {
           reqKey: "login", //分发接口Key
           reqData: {
             username: userInfo.username,
@@ -86,11 +84,12 @@ const user = {
     //刷新token
     RefeshToken({ commit }) {
       return new Promise((resolve, reject) => {
-        let reqData = {
-          reqData: {},
+
+        let reqData = Object.assign({}, website.requestOptions, {
           reqKey: "refesh-token", //分发接口Key
-          reqFrom: reqFrom
-        };
+          reqData: {}
+        });
+
         auth(reqData)
           .then(res => {
             let data = res.data;
@@ -108,11 +107,12 @@ const user = {
     // 登出
     LogOut({ commit }) {
       return new Promise((resolve, reject) => {
-        let reqData = {
-          reqData: {},
+
+        let reqData = Object.assign({}, website.requestOptions, {
           reqKey: "logout", //分发接口Key
-          reqFrom: reqFrom
-        };
+          reqData: {}
+        });
+
         auth(reqData)
           .then(res => {
             let data = res.data;

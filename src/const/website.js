@@ -4,18 +4,16 @@ export default {
   indexTitle: "Alonso VUE Template",
   lockPage: "/lock",
   tokenTime: 6000,
-  //配置菜单的属性
-  menu: {
-    props: {
-      label: "label",
-      path: "path",
-      icon: "icon",
-      children: "children"
-    }
+  menuProps:{
+    label: "label",
+    path: "path",
+    icon: "icon",
+    children: "children"      
   },
-  requestConfig: {
+  requestOptions:{   
     reqKey: "",
     reqFrom: "001",
     reqData: {}
   }
+ 
 };

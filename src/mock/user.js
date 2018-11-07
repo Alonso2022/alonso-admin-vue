@@ -6,27 +6,18 @@ const menus = [
       label: "主菜单",
       path: "/dashborad",
       icon: "icon-dengji",
-      component: "",
-      mate: {},
-      pId: ""
-    },
-    {
-      id: "1001",
-      label: "驾驶舱",
-      path: "/dashborad",
-      icon: "icon-dengji",
-      component: "page/index/dashborad",
-      mate: {},
-      pId: "10"
+      component: "views/wel/index",
+      mate: { },
+      children: []
     },
     {
       id: "11",
       label: "驾驶舱",
       path: "/dashborad",
       icon: "icon-dengji",
-      component: "page/index/dashborad",
+      component: "views/wel/index",
       mate: {},
-      pId: ""
+      children: []
     }
   ];
   
