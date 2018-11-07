@@ -2,30 +2,15 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link to="/login">Login</router-link>
     </div>
-    
-     <el-button type="primary"
-                 size="small"
-                 @click.native.prevent="handleLogin"
-                 class="login-submit">登录</el-button>
     <router-view/>
   </div>
 </template>
+
 <script>
 
-
-export default {
-  methods:{
-    handleLogin:function(){
-                this.$store.dispatch("LoginByUsername", {username:"admin",password:"12121"}).then((res) => {
-            console.log(res);
-            //this.$router.push({ path: this.tagWel.value });
-          });
-    }
-  }
-  
-}
 </script>
 
 
