@@ -1,10 +1,10 @@
 import { setStore, getStore } from '@/utils/storage'
 import { isObjectValueEqual } from '@/utils/common'
 const tagObj = {
-    label: '', //标题名称
-    value: '', //标题的路径
-    params: '', //标题的路径参数
-    query: '', //标题的参数
+    label: '', //标签名称
+    value: '', //标签的路径
+    params: '', //标签的路径参数
+    query: '', //标签的参数
 }
 
 //处理首个标签
@@ -39,6 +39,7 @@ const navs = {
             state.tag = action;
             setStore({ name: 'tag', content: state.tag, type: 'session' })
             if (state.tagList.some(ele => isObjectValueEqual(ele, action))) return
+    
             state.tagList.push(action)
             setFistTag(state.tagList);
             setStore({ name: 'tagList', content: state.tagList, type: 'session' })

@@ -51,22 +51,20 @@ const user = {
             password: user.password
           }
         });
-        //console.log(reqData);
         auth(reqData)
           .then(res => {
             let data = res.data;
-            console.log(data);
             if (data.resCode === "000") {
               let resData = data.resData;
-              console.log(resData.token);
               commit("SET_TOKEN", resData.token);
               commit("SET_USERIFNO", resData.userInfo);
+
+
 
               resData.menus.forEach(ele => {
                 addPath(ele);
               });
               commit("SET_MENU", resData.menus);
-              //commit('SET_MENU', resData.menus);
               commit("SET_ROLES", resData.roles);
               commit("SET_PERMISSION", resData.permission);
               commit("DEL_ALL_TAG");
@@ -81,13 +79,35 @@ const user = {
           });
       });
     },
+      //取的用户信息
+      GetUserInfo({ commit },token) {
+        return new Promise((resolve, reject) => {  
+          let reqData = Object.assign({}, website.requestOptions, {
+            reqKey: "user-info", //分发接口Key
+            reqData: {token:token}
+          });
+  
+          auth(reqData)
+            .then(res => {
+              let data = res.data;
+              if (data.resCode === "000") {
+                let resData = data.resData;
+                commit('SET_USERIFNO', resData);                
+              }
+              resolve(data);
+            })
+            .catch(error => {
+              reject(error);
+            });
+        });
+      },
     //刷新token
-    RefeshToken({ commit }) {
+    RefeshToken({ commit },token) {
       return new Promise((resolve, reject) => {
 
         let reqData = Object.assign({}, website.requestOptions, {
           reqKey: "refesh-token", //分发接口Key
-          reqData: {}
+          reqData: {token:token}
         });
 
         auth(reqData)
@@ -117,7 +137,6 @@ const user = {
           .then(res => {
             let data = res.data;
             if (data.resCode === "000") {
-              //console.log(data);
               commit("SET_TOKEN", "");
               commit("SET_MENU", []);
               commit("SET_ROLES", []);

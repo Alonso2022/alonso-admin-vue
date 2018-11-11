@@ -1,5 +1,5 @@
 <template>
-  <div class="basic-container">
+  <div class="root-container">
     <el-card>
       <slot></slot>
     </el-card>
@@ -8,17 +8,22 @@
 
 <script>
 export default {
-  name: "basicContainer"
+  name: "rootContainer"
 };
 </script>
 
 <style lang="scss">
-.basic-container {
-  padding: 8px 10px;
-  border-radius: 10px;
+.root-container {
+  padding: 0px;
+  border-radius: 0px;  
   box-sizing: border-box;
+
   .el-card {
     width: 100%;
+    border-radius: 0px;
+     &__body {
+      padding: 5px;
+    }
   }
   &:first-child {
     padding-top: 0;

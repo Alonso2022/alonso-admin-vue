@@ -27,8 +27,14 @@ const common = {
     SET_SHADE: (state, active) => {
       state.isShade = active;
     },
-    SET_COLLAPSE: state => {
+    
+
+    SET_COLLAPSE: (state) => {
+      
       state.isCollapse = !state.isCollapse;
+   
+      
+      
     },
     SET_FULLSCREN: state => {
       state.isFullScren = !state.isFullScren;

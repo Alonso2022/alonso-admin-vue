@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <basic-container>
+
+    <root-container>
+   
       <iframe v-if="$route.query.src"
               :src='$route.query.src'
               class="iframe"
@@ -9,8 +10,8 @@
               :src="urlPath"
               class="iframe"
               ref="iframe"></iframe>
-    </basic-container>
-  </div>
+    </root-container>
+
 </template>
 
 <script>
@@ -125,5 +126,10 @@ export default {
   border: 0;
   overflow: hidden;
   box-sizing: border-box;
+}
+.myiframe{
+  padding-left:10px;
+  border: 1px solid #000;
+  
 }
 </style>

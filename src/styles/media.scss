@@ -1,0 +1,169 @@
+.hc-left,
+.hc-header,
+.hc-top,
+.hc-logo,
+.login-logo,
+.hc-main {
+    transition: all .3s;
+}
+
+.hc-contail {
+    width: 100%;
+    height: 100%;
+    background-color: #f2f2f2;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.hc-top {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.hc-left {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 100%;
+    z-index: 1025;
+}
+
+.hc--collapse {
+    .hc-left,
+    .hc-logo {
+        width: 60px;
+    }
+    .hc-header {
+        padding-left: 60px;
+    }
+    .hc-main {
+        width: calc(100% - 60px);
+        left: 60px;
+    }
+}
+
+.hc-header {
+    padding-left: 220px;
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.hc-main {
+    position: absolute;
+    left: 220px;
+    margin-top: 5px;
+    padding: 0;
+    padding-bottom: 20px;
+    width: calc(100% - 220px);
+    height: calc(100% - 57px);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.hc-view {
+    padding-bottom: 22px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hc-footer {
+    margin: 0 auto;
+    padding: 0 22px;
+    width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+        margin-left: -50px;
+    }
+    .copyright {
+        color: #666;
+        line-height: 1.5;
+        font-size: 12px;
+    }
+}
+
+.hc-shade {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 1024;
+    &--show {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    $width: 220px;
+    // ele的自适应
+    .el-dialog,
+    .el-message-box {
+        width: 98% !important;
+    }
+    //登录页面
+    .login-left {
+        display: none !important;
+    }
+    .login-logo {
+        padding-top: 30px !important;
+        margin-left: -30px;
+    }
+    .login-border {
+        margin: 0 auto;
+        float: none !important;
+        width: 86% !important;
+    }
+    .login-main {
+        width: 100% !important;
+    }
+    //主框架
+    // .hc-tags {
+    //     display: none;
+    // }
+    .hc-left,
+    .hc-logo {
+        left: -$width;
+    }
+    .hc-main {
+        left: 0;
+        width: 100%;
+    }
+    .hc-header {
+        margin-bottom: 0px;
+        padding-left: 0px;
+    }
+    .top-bar__item {
+        display: none;
+    }
+    .hc-top {
+        .top-menu {
+            .el-menu-item {
+                padding: 0 2px;
+            }
+        }
+    }
+    .hc--collapse {
+        .hc-left,
+        .hc-logo {
+            width: $width;
+            left: 0;
+        }
+        .hc-main {
+            left: 0;
+            width: 100%;
+        }
+        .hc-shade {
+            display: block;
+        }
+    }
+}

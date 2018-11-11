@@ -1,4 +1,4 @@
-const getters = {
+const getters = {    
     tag: state => state.tags.tag,
     website: state => state.common.website,
     userInfo: state => state.user.userInfo,
