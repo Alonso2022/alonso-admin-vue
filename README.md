@@ -1,4 +1,4 @@
-# alonso-template-vue
+# alonso-admin-vue
 
 ## Project setup
 ```
